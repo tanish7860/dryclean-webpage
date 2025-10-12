@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dry Clean Discounts</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    .discount-section {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #00bcd4, #0097a7);
+      color: white;
+    }
+
+    .discount-section h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .discount-section p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 30px;
+    }
+
+    .offer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      padding: 20px;
+    }
+
+    .offer-card {
+      background: white;
+      color: #333;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      padding: 25px;
+      transition: 0.3s;
+    }
+
+    .offer-card:hover {
+      transform:rotateY('angle');
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .offer-card h2 {
+      color: #0097a7;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .offer-card p {
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+
+    .offer-card button {
+      background-color: #0097a7;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: 600;
+    }
+
+    .offer-card button:hover {
+      background-color: #007c8a;
+    }
+
+    @media (max-width: 768px) {
+      .offer-card {
+        width: 90%;
+      }
+
+      .discount-section h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="discount-section">
+    <h1>Exclusive Dry Cleaning Discounts</h1>
+    <p>Save more while keeping your clothes fresh and spotless!</p>
+  </section>
+
+  <div class="offer-container">
+    <div class="offer-card">
+      <h2>20% OFF</h2>
+      <p>On your first dry cleaning order. Experience our premium service today!</p>
+      <button>Book Now</button>
+    </div>
+
+    <div class="offer-card">
+      <h2>Buy 3, Get 1 Free</h2>
+      <p>Bring any 3 garments and get the 4th one cleaned absolutely free!</p>
+      <button>Grab Offer</button>
+    </div>
+
+    <div class="offer-card">
+      <h2>Free Pickup & Delivery</h2>
+      <p>Enjoy free pickup and delivery on all orders above ₹500.</p>
+      <button>Schedule Now</button>
+    </div>
+  </div>
+
+</body>
+</html>
