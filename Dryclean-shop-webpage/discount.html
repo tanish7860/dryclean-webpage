@@ -1,126 +1,468 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dry Clean Discounts</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offers &amp; Deals — Tanish Dryclean</title>
+    
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="css/style.css">
 
-    body {
-      background-color: #f9f9f9;
-      color: #333;
-    }
+    <style>
+        /* Specific Discount Page Styles */
+        .discount-hero {
+            background: linear-gradient(160deg, #0F1729 0%, #162040 100%);
+            color: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 2px solid var(--gold);
+        }
 
-    .discount-section {
-      text-align: center;
-      padding: 60px 20px;
-      background: linear-gradient(135deg, #00bcd4, #0097a7);
-      color: white;
-    }
+        .discount-hero::before {
+            content: '';
+            position: absolute;
+            top: -100px; left: -100px;
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(212,168,83,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
 
-    .discount-section h1 {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
+        .discount-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
 
-    .discount-section p {
-      font-size: 1.1rem;
-      opacity: 0.9;
-      margin-bottom: 30px;
-    }
+        .discount-hero p {
+            font-size: 1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
 
-    .offer-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
-      padding: 20px;
-    }
+        .offers-grid {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
 
-    .offer-card {
-      background: white;
-      color: #333;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      width: 300px;
-      padding: 25px;
-      transition: 0.3s;
-    }
+        @media (max-width: 900px) {
+            .offers-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
 
-    .offer-card:hover {
-      transform:rotateY('angle');
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    }
+        @media (max-width: 600px) {
+            .offers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
-    .offer-card h2 {
-      color: #0097a7;
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
+        /* Luxury coupon design card */
+        .coupon-card {
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1.5px dashed #D4A853;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(15,23,41,0.03);
+            transition: transform var(--transition), box-shadow var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
 
-    .offer-card p {
-      margin-bottom: 20px;
-      font-size: 1rem;
-    }
+        .coupon-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(15,23,41,0.08);
+        }
 
-    .offer-card button {
-      background-color: #0097a7;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-      font-weight: 600;
-    }
+        /* Inner dashed divider lines */
+        .coupon-card::before, .coupon-card::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--parchment);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 1px solid #EDE9E0;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+        }
 
-    .offer-card button:hover {
-      background-color: #007c8a;
-    }
+        .coupon-card::before { left: -10px; }
+        .coupon-card::after { right: -10px; }
 
-    @media (max-width: 768px) {
-      .offer-card {
-        width: 90%;
-      }
+        .coupon-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            background: rgba(107,144,128,0.12);
+            color: #6B9080;
+            padding: 5px 12px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 16px;
+        }
 
-      .discount-section h1 {
-        font-size: 2rem;
-      }
-    }
-  </style>
+        .coupon-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px;
+            line-height: 1.1;
+        }
+
+        .coupon-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 24px;
+            flex: 1;
+        }
+
+        /* Coupon Code Box */
+        .coupon-code-box {
+            background: #F1F4F8;
+            border: 1px solid #EDE9E0;
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--dark);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            width: 100%;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+
+        .coupon-code-box:hover {
+            background: #e2e8f0;
+            border-color: var(--gold);
+        }
+
+        .coupon-code-box i {
+            color: var(--gold-dark);
+            font-size: 0.85rem;
+        }
+
+        .coupon-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--dark);
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 700;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            width: 100%;
+            transition: all var(--transition);
+            border: 1.5px solid transparent;
+        }
+
+        .coupon-btn:hover {
+            background: transparent;
+            color: var(--dark);
+            border-color: var(--dark);
+        }
+
+        /* Alert Toast */
+        .copy-toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--dark);
+            color: #ffffff;
+            border: 1px solid var(--gold);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            z-index: 10000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+        }
+
+        .copy-toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .copy-toast i {
+            color: var(--gold);
+        }
+    </style>
 </head>
 <body>
 
-  <section class="discount-section">
-    <h1>Exclusive Dry Cleaning Discounts</h1>
-    <p>Save more while keeping your clothes fresh and spotless!</p>
-  </section>
+    <!-- ========== HEADER ========== -->
+    <header id="main-header">
+        <!-- TOP ANNOUNCEMENT BAR -->
+        <div class="header-announcement">
+            <div class="announcement-inner">
+                <i class="fa-solid fa-star"></i>
+                <span>Free home pickup &amp; delivery on orders above ₹299</span>
+                <i class="fa-solid fa-star"></i>
+                <span>CALL IN 7837056212</span>
+                <i class="fa-solid fa-star"></i>
+                <span>Express 8-hour service available</span>
+                <i class="fa-solid fa-star"></i>
+                <span>Premium fabric care guaranteed</span>
+            </div>
+        </div>
 
-  <div class="offer-container">
-    <div class="offer-card">
-      <h2>20% OFF</h2>
-      <p>On your first dry cleaning order. Experience our premium service today!</p>
-      <button>Book Now</button>
+        <!-- MAIN NAVBAR -->
+        <nav class="navbar" id="site-navbar">
+            <!-- LOGO (LEFT) -->
+            <a href="index.html" class="nav-logo" id="site-logo" aria-label="Tanish Dryclean Home">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-shirt"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">Tanish</span>
+                    <span class="logo-sub">DryClean</span>
+                </div>
+            </a>
+
+            <!-- NAV LINKS & CTA (RIGHT) -->
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="service.html" class="nav-link">Services</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+                <button class="nav-btn-book" onclick="openBookingModal()">Book Laundry Now!</button>
+            </div>
+
+            <!-- MOBILE TOGGLE BUTTON -->
+            <button class="mobile-toggle" id="mobile-toggle-btn" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ========== HERO HEADER ========== -->
+    <section class="discount-hero">
+        <h1>Exclusive Drycleaning Offers</h1>
+        <p>Save more while keeping your garments fresh, clean, and perfectly spotless!</p>
+    </section>
+
+    <!-- ========== OFFERS SECTION ========== -->
+    <main class="offers-grid">
+
+        <!-- Coupon 1 -->
+        <div class="coupon-card">
+            <span class="coupon-tag">New Customer Only</span>
+            <div class="coupon-value">20% OFF</div>
+            <p class="coupon-desc">Get 20% flat discount on your very first dry cleaning order. Try our premium care today.</p>
+            <div class="coupon-code-box" onclick="copyCoupon('WELCOME20')">
+                <span id="code-WELCOME20">WELCOME20</span>
+                <i class="fa-regular fa-copy"></i>
+            </div>
+            <button onclick="openBookingModal()" class="coupon-btn">Grab Offer</button>
+        </div>
+
+        <!-- Coupon 2 -->
+        <div class="coupon-card">
+            <span class="coupon-tag">Wash Offer</span>
+            <div class="coupon-value">Buy 3 Get 1</div>
+            <p class="coupon-desc">Bring any 3 garments for washing and get the 4th item cleaned absolutely free. Applies to casuals.</p>
+            <div class="coupon-code-box" onclick="copyCoupon('B3G1FREE')">
+                <span id="code-B3G1FREE">B3G1FREE</span>
+                <i class="fa-regular fa-copy"></i>
+            </div>
+            <button onclick="openBookingModal()" class="coupon-btn">Grab Offer</button>
+        </div>
+
+        <!-- Coupon 3 -->
+        <div class="coupon-card">
+            <span class="coupon-tag">Delivery Benefit</span>
+            <div class="coupon-value">Free Pickup</div>
+            <p class="coupon-desc">Enjoy free home pickup and delivery right at your doorstep on all orders above ₹299.</p>
+            <div class="coupon-code-box" onclick="copyCoupon('DELIVER299')">
+                <span id="code-DELIVER299">DELIVER299</span>
+                <i class="fa-regular fa-copy"></i>
+            </div>
+            <button onclick="openBookingModal()" class="coupon-btn">Schedule Now</button>
+        </div>
+
+    </main>
+
+    <!-- ========== COPY ALERT TOAST ========== -->
+    <div class="copy-toast" id="toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>Coupon code copied successfully!</span>
     </div>
 
-    <div class="offer-card">
-      <h2>Buy 3, Get 1 Free</h2>
-      <p>Bring any 3 garments and get the 4th one cleaned absolutely free!</p>
-      <button>Grab Offer</button>
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="footer-top-bar">
+            <div class="footer-brand">
+                <div class="footer-logo-icon">
+                    <i class="fa-solid fa-shirt"></i>
+                </div>
+                <div class="footer-logo-text">
+                    <span class="footer-logo-name">Tanish DryClean</span>
+                    <span class="footer-logo-tag">Premium Care</span>
+                </div>
+            </div>
+            <p class="footer-brand-desc">Amritsar's trusted dry cleaning &amp; laundry service. Restoring shine, softness, and sanitation to all your premium garments and accessories.</p>
+        </div>
+
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+                    <li><a href="service.html"><i class="fa-solid fa-chevron-right"></i> Our Services</a></li>
+                    <li><a href="discount.html"><i class="fa-solid fa-chevron-right"></i> Offers &amp; Deals</a></li>
+                    <li><a href="faq.html"><i class="fa-solid fa-chevron-right"></i> FAQs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-chevron-right"></i> Sofa Sanitizing</a></li>
+                    <li><a href="#"><i class="fa-solid fa-chevron-right"></i> Silk Saree Dry Clean</a></li>
+                    <li><a href="#"><i class="fa-solid fa-chevron-right"></i> Blanket &amp; Quilt wash</a></li>
+                    <li><a href="#"><i class="fa-solid fa-chevron-right"></i> Sneaker Detailing</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Lawrence Road, Amritsar, Punjab, India</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91 98765 43210</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>support@tanishdryclean.com</span>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="footer-social">
+                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 <strong>Tanish DryClean</strong>. All Rights Reserved. Crafted with <i class="fa-solid fa-heart" style="color:#D4A853"></i> in Amritsar.</p>
+        </div>
+    </footer>
+
+    <!-- ========== BOOKING MODAL POPUP (Image 2 Mockup) ========== -->
+    <div class="booking-modal-overlay" id="booking-modal-overlay" onclick="handleModalBackdropClick(event)">
+        <div class="booking-modal-container" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button class="modal-close-btn" onclick="closeBookingModal()" aria-label="Close modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="booking-form-wrapper">
+                <form id="laundry-booking-form" onsubmit="handleBookingSubmit(event)">
+                    <div class="form-row-2col">
+                        <div class="form-group">
+                            <input type="text" id="cust-name" class="modal-input" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="cust-phone" class="modal-input" placeholder="Your Number" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row-2col">
+                        <div class="form-group">
+                            <input type="email" id="cust-email" class="modal-input" placeholder="Your Email">
+                        </div>
+                        <div class="form-group">
+                            <select id="cust-service" class="modal-select" required>
+                                <option value="" disabled selected>Select a Service</option>
+                                <option value="Dry Cleaning">Dry Cleaning</option>
+                                <option value="Laundry & Wash">Laundry &amp; Wash</option>
+                                <option value="Ironing & Pressing">Ironing &amp; Pressing</option>
+                                <option value="Steam Pressing">Steam Pressing</option>
+                                <option value="Shoe Care">Shoe Care &amp; Cleaning</option>
+                                <option value="Curtain & Carpet">Curtain &amp; Carpet Cleaning</option>
+                                <option value="Stain Removal">Stain Removal</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row-2col">
+                        <div class="form-group">
+                            <input type="date" id="cust-date" class="modal-input" placeholder="Choose Pickup Date" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="cust-slot" class="modal-select" required>
+                                <option value="" disabled selected>Select a Time Slot</option>
+                                <option value="Morning (09:00 AM - 12:00 PM)">Morning (09:00 AM - 12:00 PM)</option>
+                                <option value="Afternoon (12:00 PM - 03:00 PM)">Afternoon (12:00 PM - 03:00 PM)</option>
+                                <option value="Evening (03:00 PM - 06:00 PM)">Evening (03:00 PM - 06:00 PM)</option>
+                                <option value="Night (06:00 PM - 09:00 PM)">Night (06:00 PM - 09:00 PM)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row-full">
+                        <div class="form-group">
+                            <input type="text" id="cust-address" class="modal-input" placeholder="Address with Landmark" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row-full">
+                        <div class="form-group">
+                            <textarea id="cust-items" class="modal-textarea" rows="4" placeholder="Please share what all items you have for a laundry...?"></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="modal-submit-btn">Book Laundry Now!</button>
+                </form>
+            </div>
+        </div>
     </div>
 
-    <div class="offer-card">
-      <h2>Free Pickup & Delivery</h2>
-      <p>Enjoy free pickup and delivery on all orders above ₹500.</p>
-      <button>Schedule Now</button>
-    </div>
-  </div>
-
+    <!-- Main JavaScript -->
+    <script src="js/main.js" defer></script>
 </body>
 </html>

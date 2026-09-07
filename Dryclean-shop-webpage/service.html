@@ -1,100 +1,469 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Our Services — Tanish Dryclean</title>
+    
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Specific Service Page Styles */
+        .services-hero {
+            background: linear-gradient(160deg, #0F1729 0%, #162040 100%);
+            color: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services-hero::before {
+            content: '';
+            position: absolute;
+            top: -100px; right: -100px;
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(212,168,83,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .services-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .services-hero p {
+            font-size: 1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .services-wrapper {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* Premium service rows */
+        .service-row-card {
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #EDE9E0;
+            overflow: hidden;
+            display: flex;
+            box-shadow: 0 4px 20px rgba(15,23,41,0.04);
+            transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+        }
+
+        .service-row-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(15,23,41,0.08);
+            border-color: rgba(212,168,83,0.3);
+        }
+
+        .service-row-card:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .service-row-img {
+            width: 40%;
+            min-height: 260px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .service-row-body {
+            width: 60%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .service-row-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #A8833A;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 8px;
+        }
+
+        .service-row-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .service-row-desc {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+            margin-bottom: 24px;
+        }
+
+        .service-row-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            border-top: 1.5px solid #F1F4F8;
+            padding-top: 20px;
+        }
+
+        .service-price {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-label {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .price-value {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .service-row-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--dark);
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 700;
+            padding: 10px 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            border: 1.5px solid transparent;
+            transition: all var(--transition);
+        }
+
+        .service-row-btn:hover {
+            background: transparent;
+            color: var(--dark);
+            border-color: var(--dark);
+        }
+
+        @media (max-width: 768px) {
+            .service-row-card,
+            .service-row-card:nth-child(even) {
+                flex-direction: column;
+            }
+            .service-row-img {
+                width: 100%;
+                height: 200px;
+            }
+            .service-row-body {
+                width: 100%;
+                padding: 24px;
+            }
+        }
+    </style>
 </head>
-<style>
-    .section {
-        background-color: #6991a363;
-
-
-    }
-
-
-    .services {
-        max-width: 700px;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-        background-color: white;
-
-
-
-
-    }
-
-    .service {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background-color: white;
-        padding: 10px 20px;
-        border-radius: 12px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        background-color: #6991a31f;
-
-    }
-
-
-    .label {
-        background: linear-gradient(90deg, #f47b0a, #ff9a00);
-        color: #000;
-        font-weight: bold;
-        font-size: 1.2rem;
-        padding: 12px 20px;
-        border-radius: 30px;
-        flex: 1;
-        margin-right: 15px;
-        text-align: center;
-    }
-
-
-    .service img {
-        width: 120px;
-        height: auto;
-        border-radius: 8px;
-        object-fit: cover;
-    }
-</style>
-
 <body>
 
-    <div class="section">
-        <div class="services">
-            <div class="service">
-                <div class="label">SOFA SPA</div>
-                <img src="https://5.imimg.com/data5/SELLER/Default/2023/3/DV/ZW/QZ/17641679/sofa-dry-cleaner-services.webp"
-                    alt="Sofa">
+    <!-- ========== HEADER ========== -->
+    <header id="main-header">
+        <!-- TOP ANNOUNCEMENT BAR -->
+        <div class="header-announcement">
+            <div class="announcement-inner">
+                <i class="fa-solid fa-star"></i>
+                <span>Free home pickup &amp; delivery on orders above ₹299</span>
+                <i class="fa-solid fa-star"></i>
+                <span>CALL IN 7837056212</span>
+                <i class="fa-solid fa-star"></i>
+                <span>Express 8-hour service available</span>
+                <i class="fa-solid fa-star"></i>
+                <span>Premium fabric care guaranteed</span>
+            </div>
+        </div>
+
+        <!-- MAIN NAVBAR -->
+        <nav class="navbar" id="site-navbar">
+            <!-- LOGO (LEFT) -->
+            <a href="index.html" class="nav-logo" id="site-logo" aria-label="Tanish Dryclean Home">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-shirt"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">Tanish</span>
+                    <span class="logo-sub">DryClean</span>
+                </div>
+            </a>
+
+            <!-- NAV LINKS & CTA (RIGHT) -->
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="service.html" class="nav-link active">Services</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+                <button class="nav-btn-book" onclick="openBookingModal()">Book Laundry Now!</button>
             </div>
 
-            <div class="service">
-                <div class="label">BLANKETS/QUILTS</div>
-                <img src="https://5.imimg.com/data5/ANDROID/Default/2022/4/AS/LZ/JS/151330313/prod-20220417-1547175840110118923121817-jpg.jpg"
-                    alt="Blankets">
+            <!-- MOBILE TOGGLE BUTTON -->
+            <button class="mobile-toggle" id="mobile-toggle-btn" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ========== HERO HEADER ========== -->
+    <section class="services-hero">
+        <h1>Our Premium Services</h1>
+        <p>From daily casuals to delicate wedding couture and home upholstery, we provide specialist fabric care solutions in Amritsar.</p>
+    </section>
+
+    <!-- ========== MAIN SERVICES LISTING ========== -->
+    <main class="services-wrapper">
+
+        <!-- Sofa Spa -->
+        <div class="service-row-card">
+            <div class="service-row-img" style="background-image: url('https://5.imimg.com/data5/SELLER/Default/2023/3/DV/ZW/QZ/17641679/sofa-dry-cleaner-services.webp');"></div>
+            <div class="service-row-body">
+                <span class="service-row-tag">Upholstery Care</span>
+                <h2 class="service-row-title">Deep Sofa Spa Treatment</h2>
+                <p class="service-row-desc">Bring your sofa back to life! Our deep-cleaning extraction process removes deep-seated dust, tough stains, allergens, and bacteria from leather, suede, and fabric sofas, sanitizing and refreshing your living space.</p>
+                <div class="service-row-footer">
+                    <div class="service-price">
+                        <span class="price-label">Starting From</span>
+                        <span class="price-value">₹199 / Seat</span>
+                    </div>
+                    <button onclick="openBookingModal()" class="service-row-btn">Book Pickup</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blankets/Quilts -->
+        <div class="service-row-card">
+            <div class="service-row-img" style="background-image: url('https://5.imimg.com/data5/ANDROID/Default/2022/4/AS/LZ/JS/151330313/prod-20220417-1547175840110118923121817-jpg.jpg');"></div>
+            <div class="service-row-body">
+                <span class="service-row-tag">Winter Wear</span>
+                <h2 class="service-row-title">Blanket &amp; Quilt Sanitization</h2>
+                <p class="service-row-desc">Soft, hygienic, and perfectly fluffy. We wash and sanitize heavy wool blankets, quilts, and duvets using advanced eco-friendly conditioning solutions to preserve thermal properties and guarantee a dust-free sleep.</p>
+                <div class="service-row-footer">
+                    <div class="service-price">
+                        <span class="price-label">Starting From</span>
+                        <span class="price-value">₹249 / Piece</span>
+                    </div>
+                    <button onclick="openBookingModal()" class="service-row-btn">Book Pickup</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Embroidery Sarees -->
+        <div class="service-row-card">
+            <div class="service-row-img" style="background-image: url('https://glimageurl.golocall.com/golocal-post/image/191150_balusdrycleaners1549598636.jpeg');"></div>
+            <div class="service-row-body">
+                <span class="service-row-tag">Couture Care</span>
+                <h2 class="service-row-title">Embroidery Cloths &amp; Saree Dry Cleaning</h2>
+                <p class="service-row-desc">Extraordinary care for your precious garments. Heavy zardozi, hand embroidery, delicate silk sarees, and wedding lehengas are processed individually, treated with gentle solvents, and hand-finished with luxury steam pressing.</p>
+                <div class="service-row-footer">
+                    <div class="service-price">
+                        <span class="price-label">Starting From</span>
+                        <span class="price-value">₹349 / Piece</span>
+                    </div>
+                    <button onclick="openBookingModal()" class="service-row-btn">Book Pickup</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shirts/T-shirts -->
+        <div class="service-row-card">
+            <div class="service-row-img" style="background-image: url('images/jacketes.webp');"></div>
+            <div class="service-row-body">
+                <span class="service-row-tag">Daily Casuals</span>
+                <h2 class="service-row-title">Shirts &amp; T-Shirts Wash &amp; Steam Press</h2>
+                <p class="service-row-desc">Crisp collar lines and wrinkle-free finishes. Our premium daily wash service preserves colors and fabric strength, followed by precision steam pressing to keep you looking sharp for work or leisure.</p>
+                <div class="service-row-footer">
+                    <div class="service-price">
+                        <span class="price-label">Starting From</span>
+                        <span class="price-value">₹49 / Piece</span>
+                    </div>
+                    <button onclick="openBookingModal()" class="service-row-btn">Book Pickup</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shoes -->
+        <div class="service-row-card">
+            <div class="service-row-img" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMRy32fs1WNEUsykeGLzBT5XOH2yTGqYmQQg&s');"></div>
+            <div class="service-row-body">
+                <span class="service-row-tag">Accessories</span>
+                <h2 class="service-row-title">Premium Shoe Dry Clean &amp; Polish</h2>
+                <p class="service-row-desc">Restore your favorite kicks. We detail sneakers, suede, leather boots, and canvas shoes. Our multi-step cleaning includes outsole scrubbing, stain treatment, deodorizing, and conditioning.</p>
+                <div class="service-row-footer">
+                    <div class="service-price">
+                        <span class="price-label">Starting From</span>
+                        <span class="price-value">₹199 / Pair</span>
+                    </div>
+                    <button onclick="openBookingModal()" class="service-row-btn">Book Pickup</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="footer-top-bar">
+            <div class="footer-brand">
+                <div class="footer-logo-icon">
+                    <i class="fa-solid fa-shirt"></i>
+                </div>
+                <div class="footer-logo-text">
+                    <span class="footer-logo-name">Tanish DryClean</span>
+                    <span class="footer-logo-tag">Premium Care</span>
+                </div>
+            </div>
+            <p class="footer-brand-desc">Amritsar's trusted dry cleaning &amp; laundry service. Restoring shine, softness, and sanitation to all your premium garments and accessories.</p>
+        </div>
+
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+                    <li><a href="service.html"><i class="fa-solid fa-chevron-right"></i> Our Services</a></li>
+                    <li><a href="discount.html"><i class="fa-solid fa-chevron-right"></i> Offers &amp; Deals</a></li>
+                    <li><a href="faq.html"><i class="fa-solid fa-chevron-right"></i> FAQs</a></li>
+                </ul>
             </div>
 
-            <div class="service">
-                <div class="label">Embroidery Cloths&amp; SAREES</div>
-                <img src="https://glimageurl.golocall.com/golocal-post/image/191150_balusdrycleaners1549598636.jpeg"
-                    alt="Sarees">
+            <div class="footer-col">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-chevron-right"></i> Sofa Sanitizing</a></li>
+                    <li><a href="#"><i class="fa-solid fa-chevron-right"></i> Silk Saree Dry Clean</a></li>
+                    <li><a href="#"><i class="fa-solid fa-chevron-right"></i> Blanket &amp; Quilt wash</a></li>
+                    <li><a href="#"><i class="fa-solid fa-chevron-right"></i> Sneaker Detailing</a></li>
+                </ul>
             </div>
 
-            <div class="service">
-                <div class="label">SHIRTS/T-SHIRTS</div>
-                <img src="jacketes.webp" alt="Shirts">
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Lawrence Road, Amritsar, Punjab, India</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91 98765 43210</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>support@tanishdryclean.com</span>
+                </div>
             </div>
 
-            <div class="service">
-                <div class="label">SHOES</div>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMRy32fs1WNEUsykeGLzBT5XOH2yTGqYmQQg&s"
-                    alt="Shoes">
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="footer-social">
+                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 <strong>Tanish DryClean</strong>. All Rights Reserved. Crafted with <i class="fa-solid fa-heart" style="color:#D4A853"></i> in Amritsar.</p>
+        </div>
+    </footer>
+    <div class="booking-modal-overlay" id="booking-modal-overlay" onclick="handleModalBackdropClick(event)">
+        <div class="booking-modal-container" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button class="modal-close-btn" onclick="closeBookingModal()" aria-label="Close modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="booking-form-wrapper">
+                <form id="laundry-booking-form" onsubmit="handleBookingSubmit(event)">
+                    <div class="form-row-2col">
+                        <div class="form-group">
+                            <input type="text" id="cust-name" class="modal-input" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="cust-phone" class="modal-input" placeholder="Your Number" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row-2col">
+                        <div class="form-group">
+                            <input type="email" id="cust-email" class="modal-input" placeholder="Your Email">
+                        </div>
+                        <div class="form-group">
+                            <select id="cust-service" class="modal-select" required>
+                                <option value="" disabled selected>Select a Service</option>
+                                <option value="Dry Cleaning">Dry Cleaning</option>
+                                <option value="Laundry & Wash">Laundry &amp; Wash</option>
+                                <option value="Ironing & Pressing">Ironing &amp; Pressing</option>
+                                <option value="Steam Pressing">Steam Pressing</option>
+                                <option value="Shoe Care">Shoe Care &amp; Cleaning</option>
+                                <option value="Curtain & Carpet">Curtain &amp; Carpet Cleaning</option>
+                                <option value="Stain Removal">Stain Removal</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row-2col">
+                        <div class="form-group">
+                            <input type="date" id="cust-date" class="modal-input" placeholder="Choose Pickup Date" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="cust-slot" class="modal-select" required>
+                                <option value="" disabled selected>Select a Time Slot</option>
+                                <option value="Morning (09:00 AM - 12:00 PM)">Morning (09:00 AM - 12:00 PM)</option>
+                                <option value="Afternoon (12:00 PM - 03:00 PM)">Afternoon (12:00 PM - 03:00 PM)</option>
+                                <option value="Evening (03:00 PM - 06:00 PM)">Evening (03:00 PM - 06:00 PM)</option>
+                                <option value="Night (06:00 PM - 09:00 PM)">Night (06:00 PM - 09:00 PM)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row-full">
+                        <div class="form-group">
+                            <input type="text" id="cust-address" class="modal-input" placeholder="Address with Landmark" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row-full">
+                        <div class="form-group">
+                            <textarea id="cust-items" class="modal-textarea" rows="4" placeholder="Please share what all items you have for a laundry...?"></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="modal-submit-btn">Book Laundry Now!</button>
+                </form>
             </div>
         </div>
     </div>
-</body>
 
+    <!-- Main JavaScript -->
+    <script src="js/main.js" defer></script>
+</body>
 </html>

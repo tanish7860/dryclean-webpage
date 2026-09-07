@@ -4,347 +4,475 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tanish Dryclean</title>
+    <title>Tanish Dryclean — Premium Laundry & Dry Cleaning</title>
+    <meta name="description"
+        content="Tanish Dryclean offers premium dry cleaning, laundry, ironing, steaming, and fabric care services with express home delivery in Amritsar, Punjab.">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" type="image/png" href="favicon.png">
 
 
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <header>
-        <div class="navbar">
-            <div class="nav-logo ">
-                <div class="logo"></div>
-            </div>
-
-            <div class="nav-address border">
-                <p class="add-first">Deliver To</p>
-                <div class="location-icon">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <p class="add-second">India</p>
-
-                </div>
-            </div>
-            <div class="nav-search">
-                <select class="search-select">
-                    <option>ALL</option>
-                </select>
-                <input placeholder="Search cloths " class=search-input>
-                <div class="search-icon">
-                    <i class="fa-solid fa-magnifying-glass-location"></i>
-                </div>
-            </div>
-            <div class="nav-singin border">
-                <p><a href="sign.html"><span> Hello, sign in</span></a></p>
-                <p class="nav-second"> accounts and lists</p>
-            </div>
-            <div class="nav-singin border">
-                <p><span> Return</span></p>
-                <p class="nav-second"> Orders</p>
-            </div>
-            <div class="nav-cart border">
-                <i class="fa-solid fa-cart-shopping"></i>
-                Your Cloths
+    <header id="main-header">
+        <!-- TOP ANNOUNCEMENT BAR -->
+        <div class="header-announcement">
+            <div class="announcement-inner">
+                <i class="fa-solid fa-star"></i>
+                <span>Free home pickup &amp; delivery on orders above ₹299</span>
+                <i class="fa-solid fa-star"></i>
+                <span>CALL IN 7837056212</span>
+                <i class="fa-solid fa-star"></i>
+                <span>Express 8-hour service available</span>
+                <i class="fa-solid fa-star"></i>
+                <span>Premium fabric care guaranteed</span>
             </div>
         </div>
 
-        <div class="panel">
-            <div class="panel-all">
+        <!-- MAIN NAVBAR -->
+        <nav class="navbar" id="site-navbar">
+            <!-- LOGO (LEFT) -->
+            <a href="index.html" class="nav-logo" id="site-logo" aria-label="Tanish Dryclean Home">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-shirt"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">Tanish</span>
+                    <span class="logo-sub">DryClean</span>
+                </div>
+            </a>
+
+            <!-- NAV LINKS & CTA (RIGHT) -->
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="service.html" class="nav-link">Services</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button class="nav-btn-book" onclick="openBookingModal()">Book Laundry Now!</button>
+            </div>
+
+            <!-- MOBILE TOGGLE BUTTON -->
+            <button class="mobile-toggle" id="mobile-toggle-btn" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
                 <i class="fa-solid fa-bars"></i>
-                ALL
-            </div>
-            <div class="panel-ops">
-                <p><a href="today.html">today's Deals</a></p>
-                <p><a href="service.html ">Customer Services</a></p>
-                <p>Bookings</p>
-                <p>Gift cards</p>
-                <p>offers</p>
-                <p>Registry</p>
-
-            </div>
-            <div class="panel-deales">
-                shop deals in Fabric
-
-
-            </div>
-
-
-        </div>
-
-        </div>
-
+            </button>
+        </nav>
     </header>
-    <div class="hero-section">
-        <div class="hero-message">
-            <p>You are on Tanish Dryclean.com . you can also get services in discounts and with fast local
-                delivery.<a href="discount.html"> click here to go discount section</a></p>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
 
+        <!-- LEFT: 40% TEXT SIDE -->
+        <div class="hero-left">
+            <div class="hero-badge">
+                <i class="fa-solid fa-leaf"></i>
+                Eco-Friendly & Premium
+            </div>
+            <h1 class="hero-heading">
+                Your Clothes <br>
+                <span class="hero-highlight">Deserve the Best</span><br>
+                Care
+            </h1>
+            <p class="hero-subtext">
+                Professional dry cleaning, ironing, steaming &amp; fabric care —
+                with <strong>free home pickup &amp; delivery</strong> across Amritsar.
+            </p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="stat-num">8h</span>
+                    <span class="stat-label">Express Service</span>
+                </div>
+                <div class="hero-divider"></div>
+                <div class="hero-stat">
+                    <span class="stat-num">500+</span>
+                    <span class="stat-label">Happy Customers</span>
+                </div>
+                <div class="hero-divider"></div>
+                <div class="hero-stat">
+                    <span class="stat-num">8+</span>
+                    <span class="stat-label">Services</span>
+                </div>
+            </div>
+            <div class="hero-ctas">
+                <button onclick="openBookingModal()" class="hero-btn-primary" id="hero-book-btn">
+                    <i class="fa-solid fa-calendar-check"></i> Book Laundry Now!
+                </button>
+                <a href="discount.html" class="hero-btn-secondary" id="hero-offers-btn">
+                    <i class="fa-solid fa-tags"></i> View Offers
+                </a>
+            </div>
         </div>
-    </div>
-    <div class="service">
-        <div class="services">
-            <h1> Our Services Are :</h1>
-        </div>
-    </div>
 
-    <div class="shop-section">
-        <div class="box1 box">
-            <div class="box-content">
-                <h2>Dyeing</h2>
-                <div class="box-image"
-                    style="background-image: url('https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=327&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
-                </div>
-                <p>See More</p>
+        <!-- RIGHT: 60% IMAGE SIDE -->
+        <div class="hero-right">
+            <div class="hero-image-overlay"></div>
+            <div class="hero-image-badge">
+                <i class="fa-solid fa-star"></i>
+                <span>Trusted Premium Service</span>
             </div>
+            <div class="hero-floating-card">
+                <i class="fa-solid fa-truck-fast"></i>
+                <div>
+                    <div class="float-title">Free Home Pickup</div>
+                    <div class="float-sub">Orders above ₹299</div>
+                </div>
+            </div>
+        </div>
 
-        </div>
-        <div class="box2 box">
-            <div class="box-content">
-                <h2>Iron</h2>
-                <div class="box-image"
-                    style="background-image: url('https://images.unsplash.com/photo-1674471361345-e787eaf7dd8c?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
-                </div>
-                <p>See More</p>
-            </div>
-        </div>
-        <div class="box3 box">
-            <div class="box-content">
-                <h2>Steaming</h2>
-                <div class="box-image"
-                    style="background-image: url('https://images.unsplash.com/photo-1489274495757-95c7c837b101?q=80&w=415&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
-                </div>
-                <p>See More</p>
-            </div>
-        </div>
-        <div class="box4 box">
-            <div class="box-content">
-                <h2>Rafu</h2>
-                <div class="box-image"
-                    style="background-image: url('https://content.jdmagicbox.com/comp/jhajjar/p2/9999p1251.1251.210427121637.k1p2/catalogue/-oxk81omiec.jpg');">
-                </div>
-                <p>See More</p>
-            </div>
-        </div>
-    </div>
-    <div class="shop-section">
-        <div class="box1 box">
-            <div class="box-content">
-                <h2>Sofa Spa</h2>
-                <div class="box-image"
-                    style="background-image: url('https://5.imimg.com/data5/SELLER/Default/2023/3/DV/ZW/QZ/17641679/sofa-dry-cleaner-services.webp');">
-                </div>
-                <p>See More</p>
-            </div>
+    </section>
 
-        </div>
-        <div class="box2 box">
-            <div class="box-content">
-                <h2>Quilt</h2>
-                <div class="box-image"
-                    style="background-image: url('https://5.imimg.com/data5/ANDROID/Default/2022/4/AS/LZ/JS/151330313/prod-20220417-1547175840110118923121817-jpg.jpg');">
-                </div>
-                <p>See More</p>
-            </div>
-        </div>
-        <div class="box3 box">
-            <div class="box-content">
-                <h2>Embroidery</h2>
-                <div class="box-image"
-                    style="background-image: url('https://glimageurl.golocall.com/golocal-post/image/191150_balusdrycleaners1549598636.jpeg');">
-                </div>
-                <p>See More</p>
-            </div>
-        </div>
-        <div class="box4 box">
-            <div class="box-content">
-                <h2>Shoes</h2>
-                <div class="box-image"
-                    style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMRy32fs1WNEUsykeGLzBT5XOH2yTGqYmQQg&s');">
-                </div>
-                <p>See More</p>
-            </div>
-        </div>
-    </div>
+    <!-- ========== SERVICES SECTION ========== -->
 
-    <section class="why-choose-us">
-        <h3>Why Choose Us</h3>
+    <section class="services-section" id="services">
+        <div class="section-header">
+            <span class="section-tag"><i class="fa-solid fa-sparkles"></i> What We Offer</span>
+            <h2 class="section-title">Our Premium Services</h2>
+            <p class="section-sub">Expert care for every fabric — from delicate silk to sturdy denim</p>
+        </div>
 
-        <div class="feature-container">
-            <div class="feature">
-                <i class="fa-regular fa-star"></i>
-                <h3>Quality</h3>
-                <p>we use the best class product,assure that your favourite cloths are always there fou you to wear
-                </p>
+        <div class="services-grid">
+            <div class="service-card" id="card-dyeing">
+                <div class="service-card-img"
+                    style="background-image:url('https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=600&auto=format&fit=crop')">
+                </div>
+                <div class="service-card-body">
+                    <div class="service-icon-wrap"><i class="fa-solid fa-droplet"></i></div>
+                    <h3>Fabric Dyeing</h3>
+                    <p>Restore or transform the colour of your garments with professional precision.</p>
+                    <a href="service.html" class="service-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
             </div>
-            <div class="feature">
-                <i class="fa-solid fa-car"></i>
+            <div class="service-card" id="card-iron">
+                <div class="service-card-img"
+                    style="background-image:url('https://images.unsplash.com/photo-1674471361345-e787eaf7dd8c?q=80&w=600&auto=format&fit=crop')">
+                </div>
+                <div class="service-card-body">
+                    <div class="service-icon-wrap"><i class="fa-solid fa-fire-flame-simple"></i></div>
+                    <h3>Ironing</h3>
+                    <p>Crisp, wrinkle-free results for shirts, trousers, sarees and every formal wear.</p>
+                    <a href="service.html" class="service-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="service-card" id="card-steam">
+                <div class="service-card-img"
+                    style="background-image:url('https://images.unsplash.com/photo-1489274495757-95c7c837b101?q=80&w=600&auto=format&fit=crop')">
+                </div>
+                <div class="service-card-body">
+                    <div class="service-icon-wrap"><i class="fa-solid fa-wind"></i></div>
+                    <h3>Steaming</h3>
+                    <p>Gentle steam treatment for sensitive fabrics — safe, thorough and fast.</p>
+                    <a href="service.html" class="service-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="service-card" id="card-rafu">
+                <div class="service-card-img"
+                    style="background-image:url('https://content.jdmagicbox.com/comp/jhajjar/p2/9999p1251.1251.210427121637.k1p2/catalogue/-oxk81omiec.jpg')">
+                </div>
+                <div class="service-card-body">
+                    <div class="service-icon-wrap"><i class="fa-solid fa-scissors"></i></div>
+                    <h3>Rafu (Darning)</h3>
+                    <p>Expert invisible repair of torn or damaged fabric — like it never happened.</p>
+                    <a href="service.html" class="service-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="service-card" id="card-sofa">
+                <div class="service-card-img"
+                    style="background-image:url('https://5.imimg.com/data5/SELLER/Default/2023/3/DV/ZW/QZ/17641679/sofa-dry-cleaner-services.webp')">
+                </div>
+                <div class="service-card-body">
+                    <div class="service-icon-wrap"><i class="fa-solid fa-couch"></i></div>
+                    <h3>Sofa Spa</h3>
+                    <p>Deep cleaning for sofas and upholstery — fresh, hygienic and rejuvenated.</p>
+                    <a href="service.html" class="service-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="service-card" id="card-quilt">
+                <div class="service-card-img"
+                    style="background-image:url('https://5.imimg.com/data5/ANDROID/Default/2022/4/AS/LZ/JS/151330313/prod-20220417-1547175840110118923121817-jpg.jpg')">
+                </div>
+                <div class="service-card-body">
+                    <div class="service-icon-wrap"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3>Quilts & Blankets</h3>
+                    <p>Seasonal deep-clean for quilts, razais and blankets — fluffy and odour-free.</p>
+                    <a href="service.html" class="service-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="service-card" id="card-emb">
+                <div class="service-card-img"
+                    style="background-image:url('https://glimageurl.golocall.com/golocal-post/image/191150_balusdrycleaners1549598636.jpeg')">
+                </div>
+                <div class="service-card-body">
+                    <div class="service-icon-wrap"><i class="fa-solid fa-star"></i></div>
+                    <h3>Embroidery Care</h3>
+                    <p>Careful handling of intricate embroidered garments, sarees and ethnic wear.</p>
+                    <a href="service.html" class="service-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="service-card" id="card-shoes">
+                <div class="service-card-img"
+                    style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMRy32fs1WNEUsykeGLzBT5XOH2yTGqYmQQg&s')">
+                </div>
+                <div class="service-card-body">
+                    <div class="service-icon-wrap"><i class="fa-solid fa-shoe-prints"></i></div>
+                    <h3>Shoe Cleaning</h3>
+                    <p>Restore leather, canvas and sports shoes to a showroom-fresh look.</p>
+                    <a href="service.html" class="service-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== WHY CHOOSE US ========== -->
+    <section class="why-section" id="why-us">
+        <div class="section-header light">
+            <span class="section-tag gold"><i class="fa-solid fa-trophy"></i> Our Promise</span>
+            <h2 class="section-title white">Why Choose Tanish DryClean?</h2>
+            <p class="section-sub light-sub">Six reasons thousands of families in Amritsar trust us every day</p>
+        </div>
+        <div class="why-grid">
+            <div class="why-card" id="why-quality">
+                <div class="why-icon"><i class="fa-solid fa-medal"></i></div>
+                <h3>Premium Quality</h3>
+                <p>We use best-in-class products to ensure your favourite clothes always look brand new.</p>
+            </div>
+            <div class="why-card" id="why-delivery">
+                <div class="why-icon"><i class="fa-solid fa-truck-fast"></i></div>
                 <h3>Express Delivery</h3>
-                <p> Forget to wash your cloth for interview/business ,meetings never mind, with our super deliver we
-                    done your laundry in just 8 hours</p>
+                <p>Got an interview tomorrow? We clean and deliver your laundry in just 8 hours.</p>
             </div>
-            <div class="feature">
-                <i class="fa-solid fa-tag"></i>
-
-                <h3>Affordable Price</h3>
-                <p>not only take take care of fabric we also care of your pocket our service cost far than market
-                    prices. not oly thsi we also save your fuel with free home delivery </p>
-
+            <div class="why-card" id="why-price">
+                <div class="why-icon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+                <h3>Affordable Pricing</h3>
+                <p>Premium quality at pocket-friendly prices — plus free home pickup & delivery.</p>
             </div>
-        </div>
-    </section>
-    <section class="why-choose-us">
-
-
-        <div class="feature-container">
-            <div class="feature">
-                <i class="fa-solid fa-thumbs-up"></i>
-                <h3>Personalised Experience</h3>
-                <p>We take utmost care of your cloths based on cloth type and give you instant clothes to make a
-                    statement
-                </p>
+            <div class="why-card" id="why-personal">
+                <div class="why-icon"><i class="fa-solid fa-user-check"></i></div>
+                <h3>Personalised Care</h3>
+                <p>Every garment is treated individually based on fabric type and washing requirements.</p>
             </div>
-            <div class="feature">
-                <i class="fa-solid fa-check"></i>
-                <h3>Instant Orders</h3>
-                <p>regular update of your order, to help you keep a trak of your laundry and plan accordingly</p>
+            <div class="why-card" id="why-tracking">
+                <div class="why-icon"><i class="fa-solid fa-bell"></i></div>
+                <h3>Order Tracking</h3>
+                <p>Regular updates on your order status so you always know where your clothes are.</p>
             </div>
-            <div class="feature">
-                <i class="fa-solid fa-tag"></i>
-
-                <h3>convenince</h3>
-                <p>with just tap a button, your laundry get done </p>
-
+            <div class="why-card" id="why-easy">
+                <div class="why-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                <h3>Tap & Done</h3>
+                <p>Book in seconds — one tap, and we handle everything from pickup to delivery.</p>
             </div>
         </div>
     </section>
 
-
-
-
-
-    <div class="section">
-        <div class="services">
-            <div class="service">
-                <div class="label">SOFA SPA</div>
+    <!-- ========== SHOWCASE STRIP ========== -->
+    <section class="showcase-section" id="showcase">
+        <div class="section-header">
+            <span class="section-tag"><i class="fa-solid fa-images"></i> Gallery</span>
+            <h2 class="section-title">We Care For Everything</h2>
+        </div>
+        <div class="showcase-strip">
+            <div class="showcase-item">
                 <img src="https://5.imimg.com/data5/SELLER/Default/2023/3/DV/ZW/QZ/17641679/sofa-dry-cleaner-services.webp"
-                    alt="Sofa">
+                    alt="Sofa Spa">
+                <div class="showcase-label">Sofa Spa</div>
             </div>
-
-            <div class="service">
-                <div class="label">BLANKETS/QUILTS</div>
+            <div class="showcase-item">
                 <img src="https://5.imimg.com/data5/ANDROID/Default/2022/4/AS/LZ/JS/151330313/prod-20220417-1547175840110118923121817-jpg.jpg"
                     alt="Blankets">
+                <div class="showcase-label">Blankets & Quilts</div>
             </div>
-
-            <div class="service">
-                <div class="label">Embroidery Cloths&amp; SAREES</div>
+            <div class="showcase-item">
                 <img src="https://glimageurl.golocall.com/golocal-post/image/191150_balusdrycleaners1549598636.jpeg"
                     alt="Sarees">
+                <div class="showcase-label">Embroidery & Sarees</div>
             </div>
-
-            <div class="service">
-                <div class="label">SHIRTS/T-SHIRTS</div>
-                <img src="jacketes.webp" alt="Shirts">
+            <div class="showcase-item">
+                <img src="images/jacketes.webp" alt="Shirts">
+                <div class="showcase-label">Shirts & Jackets</div>
             </div>
-
-            <div class="service">
-                <div class="label">SHOES</div>
+            <div class="showcase-item">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMRy32fs1WNEUsykeGLzBT5XOH2yTGqYmQQg&s"
                     alt="Shoes">
-            </div>
         </div>
     </div>
+    </section>
 
-
-    <div class="image">
-
+    <!-- ========== LOCATION & CONTACT BANNER ========== -->
+    <section class="location-section" id="contact">
+        <div class="location-overlay"></div>
         <img src="https://thumbs.dreamstime.com/b/red-map-pin-marks-location-city-sunset-highlighting-navigation-urban-area-positioned-indicating-specific-soft-394540796.jpg"
-            alt="location">
-        
+            alt="Amritsar Location" class="location-bg-img">
+        <div class="location-content">
+            <div class="location-icon-box"><i class="fa-solid fa-location-dot"></i></div>
+            <h2>Find Us in Amritsar</h2>
+            <p>Amritsar, Punjab — 143001</p>
+            <div class="location-details">
+                <span><i class="fa-solid fa-phone"></i> 8264471376</span>
+                <span><i class="fa-solid fa-clock"></i> Mon–Sun: 8 AM – 9 PM</span>
+                <span><i class="fa-solid fa-truck-fast"></i> Free Home Delivery</span>
+            </div>
+            <a href="tel:8264471376" class="location-cta" id="location-call-btn">
+                <i class="fa-solid fa-phone-volume"></i> Call Now
+            </a>
+        </div>
+    </section>
 
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer" id="footer">
+        <div class="footer-top-bar">
+            <div class="footer-brand">
+                <div class="footer-logo-icon"><i class="fa-solid fa-shirt"></i></div>
+                <div>
+                    <div class="footer-logo-name">Tanish DryClean</div>
+                    <div class="footer-logo-tag">Premium Laundry & Fabric Care</div>
+                </div>
+            </div>
+            <p class="footer-brand-desc">Trusted by thousands of families across Amritsar for spotless, premium fabric
+                care — delivered to your doorstep.</p>
+        </div>
 
-    </div>
-
-    <footer class="footer">
         <div class="footer-container">
-
-
             <div class="footer-col">
-                <h3>About Us</h3>
-                <p>
-                    Tanish dryClean is known for its best customer relationship and services to
-                    provide you the premium quality of work. We are here to provide
-                    you the best we can to fulfill your expectations. Nowadays it is very
-                    important to build them feel the work done by us.
-                </p>
-            </div>
-
-
-            <div class="footer-col">
-                <h3>Quick Links</h3>
+                <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li><a href="#about"><i class="fa-solid fa-circle-info"></i> About</a></li>
+                    <li><a href="service.html"><i class="fa-solid fa-broom"></i> Services</a></li>
+                    <li><a href="discount.html"><i class="fa-solid fa-tags"></i> Discounts</a></li>
+                    <li><a href="sign.html"><i class="fa-solid fa-user"></i> Sign In</a></li>
                 </ul>
             </div>
 
-
             <div class="footer-col">
-                <h3>Privacy & Terms</h3>
+                <h4>Support</h4>
                 <ul>
-                    <li><a href="term.html">Terms & Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                </ul>
-                <h3>FAQS</h3>
-                <ul>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="">About Us</a></li>
+                    <li><a href="faq.html"><i class="fa-regular fa-circle-question"></i> FAQ</a></li>
+                    <li><a href="term.html"><i class="fa-solid fa-file-contract"></i> Terms & Conditions</a></li>
+                    <li><a href="#contact"><i class="fa-solid fa-headset"></i> Customer Service</a></li>
                 </ul>
             </div>
 
-
             <div class="footer-col">
-                <h3>Address</h3>
-                <p>Amritsar, Punjab - 143001</p>
-                <p><i class="fa fa-phone"></i>8264471376</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="index.html"><i class="fab fa-google"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                <h4>Contact Us</h4>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Amritsar, Punjab — 143001</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>8264471376</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>Mon–Sun: 8 AM – 9 PM</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <span>Free Home Pickup & Delivery</span>
                 </div>
             </div>
 
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="footer-social">
+                    <a href="#" class="social-btn" id="footer-facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn" id="footer-instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-btn" id="footer-twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com/" class="social-btn" id="footer-youtube"><i
+                            class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-btn" id="footer-linkedin"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="footer-newsletter">
+                    <p>Get exclusive offers:</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Your email address" id="newsletter-email">
+                        <button id="newsletter-submit"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="footer-bottom">
-            <p>@copyright | All Rights Reserved</p>
+            <p>© 2025 <strong>Tanish DryClean</strong>. All Rights Reserved. Crafted with <i class="fa-solid fa-heart"
+                    style="color:var(--gold)"></i> in Amritsar.</p>
         </div>
     </footer>
-    <div>
 
+    <!-- ========== BOOKING MODAL POPUP (Image 2 Mockup) ========== -->
+    <div class="booking-modal-overlay" id="booking-modal-overlay" onclick="handleModalBackdropClick(event)">
+        <div class="booking-modal-container" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button class="modal-close-btn" onclick="closeBookingModal()" aria-label="Close modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="booking-form-wrapper">
+                <form id="laundry-booking-form" onsubmit="handleBookingSubmit(event)">
+                    <div class="form-row-2col">
+                        <div class="form-group">
+                            <input type="text" id="cust-name" class="modal-input" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="cust-phone" class="modal-input" placeholder="Your Number" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row-2col">
+                        <div class="form-group">
+                            <input type="email" id="cust-email" class="modal-input" placeholder="Your Email">
+                        </div>
+                        <div class="form-group">
+                            <select id="cust-service" class="modal-select" required>
+                                <option value="" disabled selected>Select a Service</option>
+                                <option value="Dry Cleaning">Dry Cleaning</option>
+                                <option value="Laundry & Wash">Laundry &amp; Wash</option>
+                                <option value="Ironing & Pressing">Ironing &amp; Pressing</option>
+                                <option value="Steam Pressing">Steam Pressing</option>
+                                <option value="Shoe Care">Shoe Care &amp; Cleaning</option>
+                                <option value="Curtain & Carpet">Curtain &amp; Carpet Cleaning</option>
+                                <option value="Stain Removal">Stain Removal</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row-2col">
+                        <div class="form-group">
+                            <input type="date" id="cust-date" class="modal-input" placeholder="Choose Pickup Date" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="cust-slot" class="modal-select" required>
+                                <option value="" disabled selected>Select a Time Slot</option>
+                                <option value="Morning (09:00 AM - 12:00 PM)">Morning (09:00 AM - 12:00 PM)</option>
+                                <option value="Afternoon (12:00 PM - 03:00 PM)">Afternoon (12:00 PM - 03:00 PM)</option>
+                                <option value="Evening (03:00 PM - 06:00 PM)">Evening (03:00 PM - 06:00 PM)</option>
+                                <option value="Night (06:00 PM - 09:00 PM)">Night (06:00 PM - 09:00 PM)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row-full">
+                        <div class="form-group">
+                            <input type="text" id="cust-address" class="modal-input" placeholder="Address with Landmark" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row-full">
+                        <div class="form-group">
+                            <textarea id="cust-items" class="modal-textarea" rows="4" placeholder="Please share what all items you have for a laundry...?"></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="modal-submit-btn">Book Laundry Now!</button>
+                </form>
+            </div>
+        </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <!-- Main JavaScript -->
+    <script src="js/main.js" defer></script>
 </body>
-
 </html>
