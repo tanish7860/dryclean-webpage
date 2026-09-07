@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us — Tanish DryClean Amritsar</title>
+    <meta name="description" content="Learn about Tanish DryClean, Amritsar's premier eco-friendly dry cleaning and laundry service with free doorstep pickup & delivery.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Specific About Page Styling */
+        .about-hero {
+            background: linear-gradient(160deg, #0F1729 0%, #162040 100%);
+            color: #ffffff;
+            padding: 70px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            right: -120px;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(212,168,83,0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .about-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(212,168,83,0.15);
+            border: 1px solid var(--gold);
+            color: var(--gold-light);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+
+        .about-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .about-hero p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            max-width: 720px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Story Section Grid */
+        .story-section {
+            max-width: 1140px;
+            margin: 70px auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .story-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--text);
+            margin-bottom: 18px;
+            line-height: 1.3;
+        }
+
+        .story-content p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+
+        .story-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .story-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .story-feature-item i {
+            color: var(--gold-dark);
+            font-size: 1.1rem;
+        }
+
+        .story-image-wrap {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(15,23,41,0.12);
+            border: 3px solid var(--white);
+        }
+
+        .story-image-wrap img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Stats Bar */
+        .stats-banner {
+            background: var(--dark);
+            border-top: 1px solid rgba(212,168,83,0.3);
+            border-bottom: 1px solid rgba(212,168,83,0.3);
+            padding: 45px 24px;
+            margin: 60px 0;
+        }
+
+        .stats-container {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .stat-item p {
+            color: var(--text-light);
+            font-size: 0.92rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        /* Core Values Cards */
+        .values-section {
+            max-width: 1140px;
+            margin: 70px auto;
+            padding: 0 24px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-top: 40px;
+        }
+
+        .value-card {
+            background: #ffffff;
+            border: 1px solid #EDE9E0;
+            border-radius: 14px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(15,23,41,0.04);
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+
+        .value-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(15,23,41,0.1);
+            border-color: var(--gold);
+        }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(212,168,83,0.12);
+            color: var(--gold-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 20px;
+        }
+
+        .value-card h3 {
+            font-size: 1.25rem;
+            color: var(--text);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .value-card p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 900px) {
+            .story-section {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== HEADER ========== -->
+    <header id="main-header">
+        <!-- TOP ANNOUNCEMENT BAR -->
+        <div class="header-announcement">
+            <div class="announcement-inner">
+                <i class="fa-solid fa-star"></i>
+                <span>Free home pickup &amp; delivery on orders above ₹299</span>
+                <i class="fa-solid fa-star"></i>
+                <span>CALL IN 7837056212</span>
+                <i class="fa-solid fa-star"></i>
+                <span>Express 8-hour service available</span>
+                <i class="fa-solid fa-star"></i>
+                <span>Premium fabric care guaranteed</span>
+            </div>
+        </div>
+
+        <!-- MAIN NAVBAR -->
+        <nav class="navbar" id="site-navbar">
+            <!-- LOGO (LEFT) -->
+            <a href="index.html" class="nav-logo" id="site-logo" aria-label="Tanish Dryclean Home">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-shirt"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">Tanish</span>
+                    <span class="logo-sub">DryClean</span>
+                </div>
+            </a>
+
+            <!-- NAV LINKS & CTA (RIGHT) -->
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link active">About</a>
+                <a href="service.html" class="nav-link">Services</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+                <button class="nav-btn-book" onclick="openBookingModal()">Book Laundry Now!</button>
+            </div>
+
+            <!-- MOBILE TOGGLE BUTTON -->
+            <button class="mobile-toggle" id="mobile-toggle-btn" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ========== ABOUT HERO BANNER ========== -->
+    <section class="about-hero">
+        <div class="about-badge">
+            <i class="fa-solid fa-award"></i> Premium Fabric Care Heritage
+        </div>
+        <h1>About Tanish DryClean</h1>
+        <p>Providing Amritsar with eco-friendly garment cleaning, delicate embroidery preservation, and hassle-free doorstep pickup &amp; delivery since 2018.</p>
+    </section>
+
+    <!-- ========== STORY SECTION ========== -->
+    <section class="story-section">
+        <div class="story-content">
+            <h2>Passion for Perfection in Every Fiber</h2>
+            <p>At <strong>Tanish DryClean</strong>, we believe your clothing is more than just fabric — it reflects your personal style, precious memories, and confidence. Founded in Amritsar, Punjab, our mission has always been to bring world-class fabric care right to your doorstep.</p>
+            <p>We combine traditional hand-finishing techniques with state-of-the-art European eco-friendly cleaning technology to ensure your everyday wear, bridal lehengas, suits, and household linens look brand new after every wash.</p>
+            
+            <div class="story-features">
+                <div class="story-feature-item">
+                    <i class="fa-solid fa-circle-check"></i> 100% Non-Toxic Solvents
+                </div>
+                <div class="story-feature-item">
+                    <i class="fa-solid fa-circle-check"></i> Expert Stain Removal
+                </div>
+                <div class="story-feature-item">
+                    <i class="fa-solid fa-circle-check"></i> Custom Garment Inspection
+                </div>
+                <div class="story-feature-item">
+                    <i class="fa-solid fa-circle-check"></i> Express 8-Hour Service
+                </div>
+            </div>
+        </div>
+
+        <div class="story-image-wrap">
+            <img src="https://images.unsplash.com/photo-1545173168-9f1947eebb7f?q=80&w=800&auto=format&fit=crop" alt="Tanish Dryclean Fabric Care">
+        </div>
+    </section>
+
+    <!-- ========== STATS BANNER ========== -->
+    <section class="stats-banner">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3>8,500+</h3>
+                <p>Happy Families</p>
+            </div>
+            <div class="stat-item">
+                <h3>45,000+</h3>
+                <p>Garments Cleaned</p>
+            </div>
+            <div class="stat-item">
+                <h3>99.8%</h3>
+                <p>On-Time Delivery</p>
+            </div>
+            <div class="stat-item">
+                <h3>4.9 ★</h3>
+                <p>Customer Rating</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CORE VALUES ========== -->
+    <section class="values-section">
+        <div class="section-header">
+            <span class="section-tag"><i class="fa-solid fa-heart"></i> Why We Stand Out</span>
+            <h2 class="section-title">Our Core Commitments</h2>
+        </div>
+
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon"><i class="fa-solid fa-leaf"></i></div>
+                <h3>Eco-Friendly Cleaning</h3>
+                <p>We use hypoallergenic, eco-safe solutions that preserve garment fibers and protect your skin while keeping our planet green.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                <h3>7-Point Care Process</h3>
+                <p>Every item goes through detailed stain inspection, button protection, delicate washing, custom pressing, and final quality audit.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                <h3>Doorstep Pickup & Delivery</h3>
+                <p>Schedule your pickup in seconds. Our dedicated delivery riders collect and return your fresh laundry right to your home.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer" id="footer">
+        <div class="footer-top-bar">
+            <div class="footer-brand">
+                <div class="footer-logo-icon"><i class="fa-solid fa-shirt"></i></div>
+                <div>
+                    <div class="footer-logo-name">Tanish DryClean</div>
+                    <div class="footer-logo-tag">Premium Laundry & Fabric Care</div>
+                </div>
+            </div>
+            <p class="footer-brand-desc">Trusted by thousands of families across Amritsar for spotless, premium fabric care — delivered to your doorstep.</p>
+        </div>
+
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
+                    <li><a href="service.html"><i class="fa-solid fa-broom"></i> Services</a></li>
+                    <li><a href="discount.html"><i class="fa-solid fa-tags"></i> Discounts</a></li>
+                    <li><a href="sign.html"><i class="fa-solid fa-user"></i> Sign In</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="faq.html"><i class="fa-regular fa-circle-question"></i> FAQ</a></li>
+                    <li><a href="term.html"><i class="fa-solid fa-file-contract"></i> Terms & Conditions</a></li>
+                    <li><a href="index.html#contact"><i class="fa-solid fa-headset"></i> Customer Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Amritsar, Punjab — 143001</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>8264471376</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>Mon–Sun: 8 AM – 9 PM</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <span>Free Home Pickup & Delivery</span>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="footer-social">
+                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com/" class="social-btn"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 <strong>Tanish DryClean</strong>. All Rights Reserved. Crafted with <i class="fa-solid fa-heart" style="color:var(--gold)"></i> in Amritsar.</p>
+        </div>
+    </footer>
+
+    <!-- ========== BOOKING MODAL POPUP (Image 2 Mockup) ========== -->
+    <div class="booking-modal-overlay" id="booking-modal-overlay" onclick="handleModalBackdropClick(event)">
+        <div class="booking-modal-container" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button class="modal-close-btn" onclick="closeBookingModal()" aria-label="Close modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal-header-title">
+                <h3 id="modal-title">Book Doorstep Laundry Service</h3>
+                <p>Fill out the details below for instant pickup confirmation</p>
+            </div>
+            <div class="booking-form-wrapper">
+                <form id="laundry-booking-form" onsubmit="handleBookingSubmit(event)">
+                    <div class="form-row-2col">
+                        <div class="form-group">
+                            <input type="text" id="cust-name" class="modal-input" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="cust-phone" class="modal-input" placeholder="Your Number" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row-2col">
+                        <div class="form-group">
+                            <input type="email" id="cust-email" class="modal-input" placeholder="Your Email">
+                        </div>
+                        <div class="form-group">
+                            <select id="cust-service" class="modal-select" required>
+                                <option value="" disabled selected>Select a Service</option>
+                                <option value="Dry Cleaning">Dry Cleaning</option>
+                                <option value="Laundry & Wash">Laundry &amp; Wash</option>
+                                <option value="Ironing & Pressing">Ironing &amp; Pressing</option>
+                                <option value="Steam Pressing">Steam Pressing</option>
+                                <option value="Shoe Care">Shoe Care &amp; Cleaning</option>
+                                <option value="Curtain & Carpet">Curtain &amp; Carpet Cleaning</option>
+                                <option value="Stain Removal">Stain Removal</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row-2col">
+                        <div class="form-group">
+                            <input type="date" id="cust-date" class="modal-input" placeholder="Choose Pickup Date" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="cust-slot" class="modal-select" required>
+                                <option value="" disabled selected>Select a Time Slot</option>
+                                <option value="Morning (09:00 AM - 12:00 PM)">Morning (09:00 AM - 12:00 PM)</option>
+                                <option value="Afternoon (12:00 PM - 03:00 PM)">Afternoon (12:00 PM - 03:00 PM)</option>
+                                <option value="Evening (03:00 PM - 06:00 PM)">Evening (03:00 PM - 06:00 PM)</option>
+                                <option value="Night (06:00 PM - 09:00 PM)">Night (06:00 PM - 09:00 PM)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row-full">
+                        <div class="form-group">
+                            <input type="text" id="cust-address" class="modal-input" placeholder="Address with Landmark" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row-full">
+                        <div class="form-group">
+                            <textarea id="cust-items" class="modal-textarea" rows="4" placeholder="Please share what all items you have for a laundry...?"></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="modal-submit-btn">Book Laundry Now!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== CUSTOM BEAUTIFUL SUCCESS MODAL ========== -->
+    <div class="success-modal-overlay" id="success-modal-overlay">
+        <div class="success-modal-container">
+            <div class="success-icon-wrap">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3 class="success-title">Booking Confirmed!</h3>
+            <p class="success-message" id="success-message-text">
+                Your laundry booking request has been received. We will contact you shortly for doorstep pickup!
+            </p>
+            <button class="success-done-btn" onclick="closeSuccessModal()">Great, Thank You!</button>
+        </div>
+    </div>
+
+    <!-- Main JavaScript -->
+    <script src="js/main.js" defer></script>
+</body>
+</html>
