@@ -54,7 +54,7 @@
             <!-- NAV LINKS & CTA (RIGHT) -->
             <div class="nav-menu" id="nav-menu">
                 <a href="index.html" class="nav-link active">Home</a>
-                <a href="#about" class="nav-link">About</a>
+                <a href="about.html" class="nav-link">About</a>
                 <a href="service.html" class="nav-link">Services</a>
                 <a href="#contact" class="nav-link">Contact</a>
                 <button class="nav-btn-book" onclick="openBookingModal()">Book Laundry Now!</button>
@@ -410,6 +410,10 @@
             <button class="modal-close-btn" onclick="closeBookingModal()" aria-label="Close modal">
                 <i class="fa-solid fa-xmark"></i>
             </button>
+            <div class="modal-header-title">
+                <h3 id="modal-title">Book Doorstep Laundry Service</h3>
+                <p>Fill out the details below for instant pickup confirmation</p>
+            </div>
             <div class="booking-form-wrapper">
                 <form id="laundry-booking-form" onsubmit="handleBookingSubmit(event)">
                     <div class="form-row-2col">
@@ -469,6 +473,20 @@
                     <button type="submit" class="modal-submit-btn">Book Laundry Now!</button>
                 </form>
             </div>
+        </div>
+    </div>
+
+    <!-- ========== CUSTOM BEAUTIFUL SUCCESS MODAL ========== -->
+    <div class="success-modal-overlay" id="success-modal-overlay">
+        <div class="success-modal-container">
+            <div class="success-icon-wrap">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3 class="success-title">Booking Confirmed!</h3>
+            <p class="success-message" id="success-message-text">
+                Your laundry booking request has been received. We will contact you shortly for doorstep pickup!
+            </p>
+            <button class="success-done-btn" onclick="closeSuccessModal()">Great, Thank You!</button>
         </div>
     </div>
 

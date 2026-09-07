@@ -72,25 +72,52 @@ function handleBookingSubmit(event) {
     const phoneInput = document.getElementById('cust-phone');
     const serviceInput = document.getElementById('cust-service');
     
-    const name = nameInput ? nameInput.value : 'Customer';
-    const phone = phoneInput ? phoneInput.value : '';
-    const service = serviceInput ? serviceInput.value : 'Laundry';
+    const name = (nameInput && nameInput.value.trim()) ? nameInput.value.trim() : 'Customer';
+    const phone = (phoneInput && phoneInput.value.trim()) ? phoneInput.value.trim() : '';
+    const service = (serviceInput && serviceInput.value) ? serviceInput.value : 'Laundry';
 
-    // Friendly confirmation alert
-    alert(`Thank you ${name}! Your laundry booking request for "${service}" has been received. We will contact you at ${phone} shortly for doorstep pickup!`);
+    const successMsgText = `Thank you, ${name}! Your laundry booking request for "${service}" has been received. We will contact you at ${phone} shortly for doorstep pickup!`;
 
-    // Reset form fields and close modal
+    // 1. Close the booking form modal first
+    closeBookingModal();
+
+    // 2. Set message text and show custom success modal
+    const messageEl = document.getElementById('success-message-text');
+    const successOverlay = document.getElementById('success-modal-overlay');
+
+    if (messageEl) {
+        messageEl.innerText = successMsgText;
+    }
+
+    if (successOverlay) {
+        successOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    } else {
+        // Fallback alert if browser cache has not reloaded HTML yet
+        alert(successMsgText);
+    }
+
+    // 3. Reset form fields
     const bookingForm = document.getElementById('laundry-booking-form');
     if (bookingForm) {
         bookingForm.reset();
     }
-    closeBookingModal();
 }
 
-// Close modal when user presses the 'Escape' key on keyboard
+// Function to CLOSE the Custom Success Modal
+function closeSuccessModal() {
+    const successOverlay = document.getElementById('success-modal-overlay');
+    if (successOverlay) {
+        successOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+// Close modals when user presses the 'Escape' key on keyboard
 document.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {
         closeBookingModal();
+        closeSuccessModal();
     }
 });
 
